@@ -42,10 +42,10 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 767
-  m_MinSize: {x: 608, y: 492}
+  m_MinSize: {x: 606, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 118
+  controlID: 14
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -92,8 +92,8 @@ MonoBehaviour:
     y: 0
     width: 449
     height: 496
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -209,10 +209,10 @@ MonoBehaviour:
     y: 0
     width: 953
     height: 767
-  m_MinSize: {x: 406, y: 492}
+  m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 119
+  controlID: 15
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,10 +233,10 @@ MonoBehaviour:
     y: 0
     width: 953
     height: 496
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 120
+  controlID: 16
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -355,10 +355,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 803
-    y: 100
-    width: 769
-    height: 730
+    x: 955
+    y: 92
+    width: 645
+    height: 746
   m_PersistentViewDataDictionary: {fileID: 0}
   m_PreviewResizer:
     m_CachedPref: -50
@@ -416,9 +416,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 578
+    x: 451
     y: 92
-    width: 650
+    width: 500
     height: 475
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &17
@@ -458,21 +458,21 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Avatars_Animations_Bible_Demo/Humanoid avatars
+    - Assets/Soccer Ball/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-  - Assets/Avatars_Animations_Bible_Demo/Humanoid avatars
+  - Assets/Soccer Ball/Prefabs
   m_LastFoldersGridSize: 50
   m_LastProjectPath: C:\Users\wolve\Desktop\Danilo\Fall 2018\INFO551\El Clasico 3D\El
     Clasico 3D Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fa360000
-    m_LastClickedID: 14074
-    m_ExpandedIDs: 000000004e090000440b0000fa3600003e37000000ca9a3b
+    scrollPos: {x: 0, y: 7}
+    m_SelectedIDs: 44360000
+    m_LastClickedID: 13892
+    m_ExpandedIDs: 000000004e09000098090000e80d00004a36000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -500,7 +500,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e090000440b0000
+    m_ExpandedIDs: 000000004e09000098090000140c0000e80d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -616,20 +616,20 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9e49ffff
-    m_LastClickedID: -46690
-    m_ExpandedIDs: f269ffff9e6fffffa49effffa69effffa89effffd69fffffe0b0ffffe6fbffff00000000
+    m_SelectedIDs: 76b5ffff
+    m_LastClickedID: -19082
+    m_ExpandedIDs: e6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: B06_Ch_04_Avatar
-      m_OriginalName: B06_Ch_04_Avatar
+      m_Name: Soccer Ball
+      m_OriginalName: Soccer Ball
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -46690
+      m_UserData: -19082
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -668,14 +668,14 @@ MonoBehaviour:
     height: 475
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 2124.3954873695375
+  lastFramingTime: 836.5713024746161
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -196.67975, y: -232.0984, z: 1910.9529}
+    m_Target: {x: 4.656613e-10, y: 0.004608174, z: -0.0000155241}
     speed: 2
-    m_Value: {x: -196.67975, y: -232.0984, z: 1910.9529}
+    m_Value: {x: 4.656613e-10, y: 0.004608174, z: -0.0000155241}
   m_RenderMode: 31
   m_CameraMode:
     drawMode: 31
@@ -707,9 +707,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 149.02914
+    m_Target: 180.59953
     speed: 2
-    m_Value: 149.02914
+    m_Value: 180.59953
   m_Ortho:
     m_Target: 0
     speed: 2
