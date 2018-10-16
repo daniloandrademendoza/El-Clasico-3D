@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FCBarcelonaPlayerScript : MonoBehaviour {
-    public float playerSpeed;
-    public float soccerBallSpeed;
+    private float playerSpeed;
+    private float soccerBallSpeed;
     //private string playerName;
     // private string minName;
     //private GameObject player;
