@@ -9,7 +9,7 @@ public class RealMadridPlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerSpeedRM = 50f;
-        soccerBallSpeed = 8f;
+        soccerBallSpeed = 4f;
         theRB = GetComponent<Rigidbody>();
 	}
 	
@@ -41,46 +41,46 @@ public class RealMadridPlayerScript : MonoBehaviour {
     {
         if (collision.gameObject.name == "SoccerBall")
         {
-            Debug.Log("Collided with Soccer Ball");
+           // Debug.Log("Collided with Soccer Ball");
             Rigidbody soccerBall = collision.gameObject.GetComponent<Rigidbody>();
             if (this.transform.position.x < collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z) < 0.3)
             {
-                Debug.Log("1");
+               // Debug.Log("1");
                 soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.x > collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z) < 0.3)
             {
-                Debug.Log("2");
+                //Debug.Log("2");
                 soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.z < collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < 0.3)
             {
-                Debug.Log("3");
+               // Debug.Log("3");
                 soccerBall.AddForce(transform.up * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.z > collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < 0.3)
             {
-                Debug.Log("4");
+                //Debug.Log("4");
                 soccerBall.AddForce(-transform.up * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
             {
-                Debug.Log("5");
+               // Debug.Log("5");
                 soccerBall.AddForce((transform.right + transform.up) * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
             {
-                Debug.Log("6");
+                //Debug.Log("6");
                 soccerBall.AddForce((transform.right - transform.up) * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x > collision.transform.position.x)
             {
-                Debug.Log("7");
+                //Debug.Log("7");
                 soccerBall.AddForce((-transform.up - transform.right) * soccerBallSpeed, ForceMode.Impulse);
             }
             else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x > collision.transform.position.x)
             {
-                Debug.Log("8");
+               // Debug.Log("8");
                 soccerBall.AddForce((transform.up - transform.right) * soccerBallSpeed, ForceMode.Impulse);
             }
         }
