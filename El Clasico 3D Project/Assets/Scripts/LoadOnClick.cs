@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class LoadOnClick : MonoBehaviour {
 
 	public void LoadScene(int level)
     {
@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour {
         }
         else if(level==2)
         {
-            SceneManager.LoadScene("MainMenuScene")
+            SceneManager.LoadScene("MainMenuScene");
         }
         else if(level==3)
         {

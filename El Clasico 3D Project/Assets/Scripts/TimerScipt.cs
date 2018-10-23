@@ -29,6 +29,7 @@ public class TimerScipt : MonoBehaviour {
         halfTimeGame = 2880f;
         halfTimeGamePlus = 2900f;
         fullTimeGame = 5580f;
+        fullTimeGamePlus = 5600f;
         minutesGame = 0;
         secondsGame = 0;
         barcelonaGoalsGame = 0;
@@ -38,7 +39,7 @@ public class TimerScipt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 20; //50
+        timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50; //50
         minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
         secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
         timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
