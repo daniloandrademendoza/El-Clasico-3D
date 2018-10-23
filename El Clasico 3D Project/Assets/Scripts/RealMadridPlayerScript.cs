@@ -9,7 +9,7 @@ public class RealMadridPlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerSpeedRM = 50f;
-        soccerBallSpeed = 4f;
+        soccerBallSpeed = 20f;
         theRB = GetComponent<Rigidbody>();
 	}
 	

@@ -16,7 +16,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerSpeed = 50f;
-        soccerBallSpeed = 8f;
+        soccerBallSpeed = 20f;
         soccerBallSpeedStop = 0f;
         theRB = GetComponent<Rigidbody>();
         soccerBallMove = 10f;
