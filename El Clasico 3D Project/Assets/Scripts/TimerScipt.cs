@@ -153,15 +153,15 @@ public class TimerScipt : MonoBehaviour {
             realMadridGoalsGame = System.Convert.ToInt32(realMadridScoreGame.text);
             if (barcelonaGoalsGame > realMadridGoalsGame)
             {
-                SceneManager.LoadScene("FCBarcelonaWon");
+                SceneManager.LoadScene("BarcelonaWonScene");
             }
             else if (realMadridGoalsGame > barcelonaGoalsGame)
             {
-                SceneManager.LoadScene("RealMadridWon");
+                SceneManager.LoadScene("RealMadridWonScene");
             }
             else if (barcelonaGoalsGame == realMadridGoalsGame)
             {
-                SceneManager.LoadScene("Tied");
+                SceneManager.LoadScene("TieScene");
             }
 
         }
