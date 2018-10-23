@@ -23,6 +23,8 @@ public class TimerScipt : MonoBehaviour {
     private int barcelonaGoalsGame;
     private int realMadridGoalsGame;
     public Text halfTimeTextGame;
+    public bool gamePaused;
+    private Scene currentScene;
     // Use this for initialization
     void Start () {
         timeElapsedGame = 0f;
@@ -35,22 +37,30 @@ public class TimerScipt : MonoBehaviour {
         barcelonaGoalsGame = 0;
         realMadridGoalsGame = 0;
         soccerBallString = " ";
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        gamePaused = false;
+        currentScene = SceneManager.GetActiveScene();
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (currentScene == SceneManager.GetSceneByName("GameScene"))
+        { 
         timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50; //50
         minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
         secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
         timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
         halfTimeTextGame.text = minutesGame.ToString();
+        }
         if (timeElapsedGame >= halfTimeGame && timeElapsedGame < halfTimeGamePlus)
         {
-            timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50;
-            minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
-            secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
-            timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
-            halfTimeTextGame.text = minutesGame.ToString();
+            if (currentScene == SceneManager.GetSceneByName("GameScene"))
+            {
+                timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50;
+                minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
+                secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
+                timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
+                halfTimeTextGame.text = minutesGame.ToString();
+            }
             soccerBallString = "SoccerBall";
             soccerPlayer = GameObject.Find(soccerBallString);
             soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
@@ -145,11 +155,14 @@ public class TimerScipt : MonoBehaviour {
         }
         else if (timeElapsedGame >= fullTimeGame && timeElapsedGame < fullTimeGamePlus)
         {
-            timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50;
-            minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
-            secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
-            timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
-            halfTimeTextGame.text = minutesGame.ToString();
+            if (currentScene == SceneManager.GetSceneByName("GameScene"))
+            {
+                timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50;
+                minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
+                secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
+                timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
+                halfTimeTextGame.text = minutesGame.ToString();
+            }
             barcelonaGoalsGame = System.Convert.ToInt32(barcelonaScoreGame.text);
             realMadridGoalsGame = System.Convert.ToInt32(realMadridScoreGame.text);
             if (barcelonaGoalsGame > realMadridGoalsGame)

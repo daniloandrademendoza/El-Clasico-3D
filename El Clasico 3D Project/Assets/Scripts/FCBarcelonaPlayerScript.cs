@@ -7,20 +7,22 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     private float soccerBallSpeed;
     private float soccerBallSpeedStop;
     private float soccerBallMove;
-    //private string playerName;
-    // private string minName;
-    //private GameObject player;
+    private string playerName;
+     private string minName;
+    private GameObject player;
+    private GameObject player2;
     private Rigidbody theRB;
-   // private float minDistance;
+     private double minDistance;
+    private string[] playerNamesBarcelona = { "Messi", "Suarez", "Coutinho", "Rakitic", "Vidal", "Sergio", "Roberto", "Pique", "Umtiti", "Alba", "TerStegen" };
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         playerSpeed = 50f;
         soccerBallSpeed = 20f;
         soccerBallSpeedStop = 0f;
         theRB = GetComponent<Rigidbody>();
         soccerBallMove = 10f;
-      //  minDistance = 1000f;
+        minDistance = 1000f;
 	}
 
     // Update is called once per frame
@@ -50,64 +52,82 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         {
             if(collision.gameObject.name == "SoccerBall")
             {
-           // Debug.Log("Collided with Soccer Ball");
+           
                 Rigidbody soccerBall = collision.gameObject.GetComponent<Rigidbody>();
-                if(this.transform.position.x < collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z)<0.3)
+                if(this.transform.position.x < collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z)<50)
                 {
-                   // Debug.Log("1");
-                    soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
-               //     soccerBall.AddForce(transform.right* soccerBallSpeedStop, ForceMode.Impulse);
-               // collision.transform.position = new Vector3(collision.transform.position.x+soccerBallMove,collision.transform.position.y,collision.transform.position.z);
-            }
-                else if (this.transform.position.x > collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z) < 0.3)
+                Debug.Log("IN1");
+                if (Input.GetKeyDown(KeyCode.Q))
+                     {
+                    Debug.Log("IN");
+                    this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
+                    for (int i = 1; i < 11; i++)
+                    {
+                        playerName = playerNamesBarcelona[i];
+                        player = GameObject.Find(playerName);
+                        if (System.Math.Sqrt(Mathf.Pow(this.transform.position.x - player.transform.position.x, 2) + Mathf.Pow(this.transform.position.z - player.transform.position.z, 2)) < minDistance && this.transform.position.x < player.transform.position.x && Mathf.Abs(this.transform.position.z - player.transform.position.z) < 50)
+                        {
+                            minDistance = System.Math.Sqrt(Mathf.Pow(this.transform.position.x - player.transform.position.x, 2) + Mathf.Pow(this.transform.position.z - player.transform.position.z, 2));
+                            minName = playerName;
+                        }
+                        else
+                        {
+                            player.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
+                        }
+                    }
+                    playerName = "Soccer Ball";
+                    player = GameObject.Find(playerName);
+                    player2 = GameObject.Find(minName);
+                    player.transform.position = new Vector3(player2.transform.position.x - 1, 0f, player2.transform.position.z);
+                    player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
+                     }
+                    else
+                    {
+                        soccerBall.AddForce(transform.up * soccerBallSpeed, ForceMode.Impulse);
+                    }
+                }
+                else if (this.transform.position.x > collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z) < 50)
                 {
-                    //Debug.Log("2");
-                    soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
-              //  soccerBall.AddForce(-transform.right * soccerBallSpeedStop, ForceMode.Impulse);
-               // collision.transform.position = new Vector3(collision.transform.position.x-soccerBallMove, collision.transform.position.y, collision.transform.position.z);
-            }
-                else if (this.transform.position.z < collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < 0.3)
-                {
-                   // Debug.Log("3");
-                    soccerBall.AddForce(transform.up * soccerBallSpeed, ForceMode.Impulse);
-              //  soccerBall.AddForce(transform.up * soccerBallSpeedStop, ForceMode.Impulse);
-              //  collision.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, collision.transform.position.z + soccerBallMove);
-            }
-                else if (this.transform.position.z > collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < 0.3)
-                {
-                  //  Debug.Log("4");
+                  
                     soccerBall.AddForce(-transform.up * soccerBallSpeed, ForceMode.Impulse);
-              //  soccerBall.AddForce(-transform.up * soccerBallSpeedStop, ForceMode.Impulse);
-               // collision.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, collision.transform.position.z - soccerBallMove);
-            }
+             
+                }
+                else if (this.transform.position.z < collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < 50)
+                {
+                  
+                    soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
+              
+                }
+                else if (this.transform.position.z > collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < 50)
+                {
+                 
+                    soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
+         
+                }
                 else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
                 {
-                   // Debug.Log("5");
+                   
                     soccerBall.AddForce((transform.right + transform.up) * soccerBallSpeed, ForceMode.Impulse);
-              //  soccerBall.AddForce((transform.right + transform.up) * soccerBallSpeedStop, ForceMode.Impulse);
-              //  collision.transform.position = new Vector3(collision.transform.position.x+soccerBallMove, collision.transform.position.y, collision.transform.position.z + soccerBallMove);
-            }
+             
+                }
                 else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
                 {
-                   // Debug.Log("6");
-                    soccerBall.AddForce((transform.right - transform.up) * soccerBallSpeed, ForceMode.Impulse);
-              //  soccerBall.AddForce((transform.right - transform.up) * soccerBallSpeedStop, ForceMode.Impulse);
-               // collision.transform.position = new Vector3(collision.transform.position.x + soccerBallMove, collision.transform.position.y, collision.transform.position.z - soccerBallMove);
-            }
+                  
+                    soccerBall.AddForce((-transform.right + transform.up) * soccerBallSpeed, ForceMode.Impulse);
+
+                }
                 else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x > collision.transform.position.x)
                 {
-                    //Debug.Log("7");
+                 
                     soccerBall.AddForce((- transform.up - transform.right) * soccerBallSpeed, ForceMode.Impulse);
-              //  soccerBall.AddForce((-transform.up - transform.right) * soccerBallSpeedStop, ForceMode.Impulse);
-             //   collision.transform.position = new Vector3(collision.transform.position.x - soccerBallMove, collision.transform.position.y, collision.transform.position.z - soccerBallMove);
-            }
+            
+                }
                 else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x > collision.transform.position.x)
                 {
-                   //Debug.Log("8");
-                    soccerBall.AddForce((transform.up - transform.right) * soccerBallSpeed, ForceMode.Impulse);
-               // soccerBall.AddForce((transform.up - transform.right) * soccerBallSpeedStop, ForceMode.Impulse);
-               //collision.transform.position = new Vector3(collision.transform.position.x - soccerBallMove, collision.transform.position.y, collision.transform.position.z + soccerBallMove);
-            }
+                   
+                    soccerBall.AddForce((-transform.up + transform.right) * soccerBallSpeed, ForceMode.Impulse);
+
+                }
             }
         }
 	}

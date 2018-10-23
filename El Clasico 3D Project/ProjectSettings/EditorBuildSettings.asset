@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/PauseScene.unity
+    guid: 9cf8a37b05209ca4a8665dd82bb74794
+  - enabled: 1
     path: Assets/Scenes/BarcelonaWonScene.unity
     guid: 75b889769cbedee4c8abe25f38a00c4f
   - enabled: 1
