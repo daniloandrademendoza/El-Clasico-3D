@@ -37,7 +37,7 @@ public class FCBarcelonaChangePlayerScript : MonoBehaviour {
                         if (j + 1 == selectedPlayer)
                         {
                         //Debug.Log("Entered2");
-                       // Debug.Log(playerNames[j]);
+                        Debug.Log(playerNames[j]);
                         player = GameObject.Find(playerNames[j]);
                         player.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
                         

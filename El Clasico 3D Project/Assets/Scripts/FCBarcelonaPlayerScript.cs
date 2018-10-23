@@ -14,7 +14,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     private Rigidbody theRB;
      private double minDistance;
     private string[] playerNamesBarcelona = { "Messi", "Suarez", "Coutinho", "Rakitic", "Vidal", "Sergio", "Roberto", "Pique", "Umtiti", "Alba", "TerStegen" };
-
+    private int i;
     // Use this for initialization
     void Start () {
         playerSpeed = 50f;
@@ -23,6 +23,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         theRB = GetComponent<Rigidbody>();
         soccerBallMove = 10f;
         minDistance = 1000f;
+        i = 0;
 	}
 
     // Update is called once per frame
@@ -57,28 +58,30 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 if(this.transform.position.x < collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z)<50)
                 {
                 Debug.Log("IN1");
-                if (Input.GetKeyDown(KeyCode.Q))
+                Debug.Log(this.gameObject.name);
+                if (Input.GetKey(KeyCode.Q) && this.gameObject.name == "Suarez")
                      {
                     Debug.Log("IN");
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
-                    for (int i = 1; i < 11; i++)
-                    {
-                        playerName = playerNamesBarcelona[i];
-                        player = GameObject.Find(playerName);
-                        if (System.Math.Sqrt(Mathf.Pow(this.transform.position.x - player.transform.position.x, 2) + Mathf.Pow(this.transform.position.z - player.transform.position.z, 2)) < minDistance && this.transform.position.x < player.transform.position.x && Mathf.Abs(this.transform.position.z - player.transform.position.z) < 50)
-                        {
-                            minDistance = System.Math.Sqrt(Mathf.Pow(this.transform.position.x - player.transform.position.x, 2) + Mathf.Pow(this.transform.position.z - player.transform.position.z, 2));
-                            minName = playerName;
-                        }
-                        else
-                        {
-                            player.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
-                        }
-                    }
-                    playerName = "Soccer Ball";
+                    // for (int i = 1; i < 11; i++)
+                    // {
+                    i= 1;
+                       // playerName = playerNamesBarcelona[i];
+                       // player = GameObject.Find(playerName);
+                       // if (System.Math.Sqrt(Mathf.Pow(this.transform.position.x - player.transform.position.x, 2) + Mathf.Pow(this.transform.position.z - player.transform.position.z, 2)) < minDistance && this.transform.position.x < player.transform.position.x && Mathf.Abs(this.transform.position.z - player.transform.position.z) < 50)
+                       // {
+                       //     minDistance = System.Math.Sqrt(Mathf.Pow(this.transform.position.x - player.transform.position.x, 2) + Mathf.Pow(this.transform.position.z - player.transform.position.z, 2));
+                       //     minName = playerName;
+                      //  }
+                       // else
+                       // {
+                       //     player.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
+                      //  }
+                  //  }
+                    playerName = "SoccerBall";
                     player = GameObject.Find(playerName);
-                    player2 = GameObject.Find(minName);
-                    player.transform.position = new Vector3(player2.transform.position.x - 1, 0f, player2.transform.position.z);
+                    player2 = GameObject.Find(playerNamesBarcelona[i]);
+                    player.transform.position = new Vector3(player2.transform.position.x - 10, 0f, player2.transform.position.z);
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
                      }
                     else
