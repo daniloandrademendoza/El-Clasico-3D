@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TimerScipt : MonoBehaviour {
+public class TimerScipt : MonoBehaviour
+{
     [SerializeField]
     private float fullTimeGame;
     private float fullTimeGamePlus;
@@ -12,7 +13,6 @@ public class TimerScipt : MonoBehaviour {
     private float halfTimeGamePlus;
     private int minutesGame;
     private int secondsGame;
-    private float timeElapsedGame;
     public Text timeGame;
     private string[] playerNamesBarcelona = { "Messi", "Suarez", "Coutinho", "Rakitic", "Vidal", "Sergio", "Roberto", "Pique", "Umtiti", "Alba", "TerStegen" };
     private string[] playerNamesRealMadrid = { "Isco", "Bale", "Benzema", "Modric", "Kroos", "Casemiro", "Marcelo", "Varane", "Ramos", "Carvajal", "Courtois" };
@@ -20,44 +20,44 @@ public class TimerScipt : MonoBehaviour {
     private GameObject soccerPlayer;
     public Text barcelonaScoreGame;
     public Text realMadridScoreGame;
-    private int barcelonaGoalsGame;
-    private int realMadridGoalsGame;
+    
+   
     public Text halfTimeTextGame;
     public bool gamePaused;
     private Scene currentScene;
     // Use this for initialization
-    void Start () {
-        timeElapsedGame = 0f;
+    void Start()
+    {
         halfTimeGame = 2880f;
         halfTimeGamePlus = 2900f;
         fullTimeGame = 5580f;
         fullTimeGamePlus = 5600f;
         minutesGame = 0;
         secondsGame = 0;
-        barcelonaGoalsGame = 0;
-        realMadridGoalsGame = 0;
+      
         soccerBallString = " ";
         gamePaused = false;
         currentScene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         if (currentScene == SceneManager.GetSceneByName("GameScene"))
-        { 
-        timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50; //50
-        minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
-        secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
-        timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
-        halfTimeTextGame.text = minutesGame.ToString();
+        {
+            PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * 50; //50
+            minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
+            secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
+            timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
+            halfTimeTextGame.text = minutesGame.ToString();
         }
-        if (timeElapsedGame >= halfTimeGame && timeElapsedGame < halfTimeGamePlus)
+        if (PersistentData.singleton.timeElapsedGame >= halfTimeGame && PersistentData.singleton.timeElapsedGame < halfTimeGamePlus)
         {
             if (currentScene == SceneManager.GetSceneByName("GameScene"))
             {
-                timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50;
-                minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
-                secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
+                PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * 50;
+                minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
+                secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
                 timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
                 halfTimeTextGame.text = minutesGame.ToString();
             }
@@ -153,32 +153,33 @@ public class TimerScipt : MonoBehaviour {
             soccerPlayer.transform.position = new Vector3(-428.6f, 0f, 5.5f);
             soccerPlayer.transform.eulerAngles = new Vector3(0f, 90f, 0f);
         }
-        else if (timeElapsedGame >= fullTimeGame && timeElapsedGame < fullTimeGamePlus)
+        else if (PersistentData.singleton.timeElapsedGame >= fullTimeGame && PersistentData.singleton.timeElapsedGame < fullTimeGamePlus)
         {
             if (currentScene == SceneManager.GetSceneByName("GameScene"))
             {
-                timeElapsedGame = timeElapsedGame + Time.smoothDeltaTime * 50;
-                minutesGame = Mathf.FloorToInt(timeElapsedGame / 60f);
-                secondsGame = Mathf.FloorToInt(timeElapsedGame - minutesGame * 60);
+                PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * 50;
+                minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
+                secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
                 timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
                 halfTimeTextGame.text = minutesGame.ToString();
             }
-            barcelonaGoalsGame = System.Convert.ToInt32(barcelonaScoreGame.text);
-            realMadridGoalsGame = System.Convert.ToInt32(realMadridScoreGame.text);
-            if (barcelonaGoalsGame > realMadridGoalsGame)
+            PersistentData.singleton.barcelonaGoalsGame = System.Convert.ToInt32(barcelonaScoreGame.text);
+            PersistentData.singleton.realMadridGoalsGame = System.Convert.ToInt32(realMadridScoreGame.text);
+            if (PersistentData.singleton.barcelonaGoalsGame > PersistentData.singleton.realMadridGoalsGame)
             {
                 SceneManager.LoadScene("BarcelonaWonScene");
             }
-            else if (realMadridGoalsGame > barcelonaGoalsGame)
+            else if (PersistentData.singleton.realMadridGoalsGame > PersistentData.singleton.barcelonaGoalsGame)
             {
                 SceneManager.LoadScene("RealMadridWonScene");
             }
-            else if (barcelonaGoalsGame == realMadridGoalsGame)
+            else if (PersistentData.singleton.barcelonaGoalsGame == PersistentData.singleton.realMadridGoalsGame)
             {
                 SceneManager.LoadScene("TieScene");
             }
 
         }
-       
-	}
+
+    }
 }
+

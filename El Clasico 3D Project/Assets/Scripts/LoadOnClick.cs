@@ -22,6 +22,7 @@ public class LoadOnClick : MonoBehaviour {
         }
         else if (level ==4)
         {
+            
             SceneManager.LoadScene("PauseScene");
             
         }
