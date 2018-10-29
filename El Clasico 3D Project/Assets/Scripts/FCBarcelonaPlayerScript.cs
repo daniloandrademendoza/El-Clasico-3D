@@ -16,7 +16,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     private string[] playerNamesBarcelona = { "Messi", "Suarez", "Coutinho", "Rakitic", "Vidal", "Sergio", "Roberto", "Pique", "Umtiti", "Alba", "TerStegen" };
    // private int i;
     private float minXorZBetweenPlayers;
-   // private bool done;
+    //Rigidbody playerRigidBody;
+    // private bool done;
     // Use this for initialization
     void Start() {
         playerSpeed = 30f;
@@ -27,7 +28,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         minDistance = 1000f;
         //i = 0;
         minXorZBetweenPlayers = 5f;
-      //  done = false;
+       // playerRigidBody = this.GetComponent<Rigidbody>();
+        //  done = false;
     }
 
     // Update is called once per frame
@@ -36,18 +38,22 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.W))
         {
             theRB.velocity = new Vector3(theRB.velocity.x, 0f, playerSpeed);
+            Debug.Log("W");
         }
         else if (Input.GetKey(KeyCode.A))
         {
             theRB.velocity = new Vector3(-playerSpeed, 0f, theRB.velocity.z);
+            Debug.Log("A");
         }
         else if (Input.GetKey(KeyCode.S))
         {
             theRB.velocity = new Vector3(theRB.velocity.x, 0f, -playerSpeed);
+            Debug.Log("S");
         }
         else if (Input.GetKey(KeyCode.D))
         {
             theRB.velocity = new Vector3(playerSpeed, 0f, theRB.velocity.z);
+            Debug.Log("D");
         }
         else
         {
@@ -104,7 +110,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     player = GameObject.Find(playerName);
                     player2 = GameObject.Find(minName);
                     player.transform.position = new Vector3(player2.transform.position.x, 4f, player2.transform.position.z - 20);
-                    playerRigidBody.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionZ | ~RigidbodyConstraints.FreezeRotationX | ~RigidbodyConstraints.FreezeRotationZ;
+                    playerRigidBody.constraints = RigidbodyConstraints.None;
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
                 }
@@ -148,7 +155,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     player = GameObject.Find(playerName);
                     player2 = GameObject.Find(minName);
                     player.transform.position = new Vector3(player2.transform.position.x, 4f, player2.transform.position.z + 20);
-                    playerRigidBody.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionZ | ~RigidbodyConstraints.FreezeRotationX | ~RigidbodyConstraints.FreezeRotationZ;
+                    playerRigidBody.constraints = RigidbodyConstraints.None;
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
                 }
@@ -192,11 +200,13 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     player = GameObject.Find(playerName);
                     player2 = GameObject.Find(minName);
                     player.transform.position = new Vector3(player2.transform.position.x - 20, 4f, player2.transform.position.z);
-                    playerRigidBody.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionZ | ~RigidbodyConstraints.FreezeRotationX | ~RigidbodyConstraints.FreezeRotationZ;
+                    playerRigidBody.constraints = RigidbodyConstraints.None;
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                     Debug.Log(this.gameObject.name);
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     Debug.Log(player2.name);
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
+                    Debug.Log("enabled");
                 }
                 else
                 {
@@ -230,7 +240,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     player = GameObject.Find(playerName);
                     player2 = GameObject.Find(minName);
                     player.transform.position = new Vector3(player2.transform.position.x + 20, 4f, player2.transform.position.z);
-                    playerRigidBody.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionZ | ~RigidbodyConstraints.FreezeRotationX | ~RigidbodyConstraints.FreezeRotationZ;
+                    playerRigidBody.constraints = RigidbodyConstraints.None;
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     Debug.Log(this.gameObject.name);
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
