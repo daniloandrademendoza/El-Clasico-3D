@@ -38,22 +38,22 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.W))
         {
             theRB.velocity = new Vector3(theRB.velocity.x, 0f, playerSpeed);
-            Debug.Log("W");
+           // Debug.Log("W");
         }
         else if (Input.GetKey(KeyCode.A))
         {
             theRB.velocity = new Vector3(-playerSpeed, 0f, theRB.velocity.z);
-            Debug.Log("A");
+           // Debug.Log("A");
         }
         else if (Input.GetKey(KeyCode.S))
         {
             theRB.velocity = new Vector3(theRB.velocity.x, 0f, -playerSpeed);
-            Debug.Log("S");
+           // Debug.Log("S");
         }
         else if (Input.GetKey(KeyCode.D))
         {
             theRB.velocity = new Vector3(playerSpeed, 0f, theRB.velocity.z);
-            Debug.Log("D");
+           // Debug.Log("D");
         }
         else
         {
@@ -202,11 +202,11 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     player.transform.position = new Vector3(player2.transform.position.x - 20, 4f, player2.transform.position.z);
                     playerRigidBody.constraints = RigidbodyConstraints.None;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
-                    Debug.Log(this.gameObject.name);
+                  //  Debug.Log(this.gameObject.name);
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
-                    Debug.Log(player2.name);
+                   // Debug.Log(player2.name);
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
-                    Debug.Log("enabled");
+                 //   Debug.Log("enabled");
                 }
                 else
                 {
@@ -243,27 +243,89 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     playerRigidBody.constraints = RigidbodyConstraints.None;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
-                    Debug.Log(this.gameObject.name);
+                   // Debug.Log(this.gameObject.name);
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
-                    Debug.Log(player2.name);
+                    //Debug.Log(player2.name);
                 }
                 else
                 {
                     soccerBall.AddForce(-transform.forward * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
-            //else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
-            //{
+            else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
+            {
+                minDistance = 1000f;
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                    // this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
+                    for (int i = 0; i < 11; i++)
+                    {
 
-            //    soccerBall.AddForce((transform.right + transform.up) * soccerBallSpeed, ForceMode.Impulse);
+                        playerName = playerNamesBarcelona[i];
+                        player = GameObject.Find(playerName);
+                        if (this.transform.position.x < player.transform.position.x && this.transform.position.z < player.transform.position.z &&  Mathf.Sqrt(((player.transform.position.x - this.transform.position.x)*(player.transform.position.x - this.transform.position.x))+((player.transform.position.z - this.transform.position.z) *(player.transform.position.z - this.transform.position.z)))  < minDistance)
+                        {
+                            //this.gameObject.name != playerName
+                            minDistance = Mathf.Sqrt(((player.transform.position.x - this.transform.position.x) * (player.transform.position.x - this.transform.position.x)) + ((player.transform.position.z - this.transform.position.z) * (player.transform.position.z - this.transform.position.z)));
+                        
+                        minName = playerName;
+                            //Debug.Log(minName);
+                        }
 
-            //}
-            //else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
-            //{
+                    }
+                    playerName = "SoccerBall";
+                    player = GameObject.Find(playerName);
+                    player2 = GameObject.Find(minName);
+                    player.transform.position = new Vector3(player2.transform.position.x - 20, 4f, player2.transform.position.z-20);
+                    playerRigidBody.constraints = RigidbodyConstraints.None;
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+                    this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
+                   // Debug.Log(this.gameObject.name);
+                    player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
+                   // Debug.Log(player2.name);
+                }
+                else
+                {
+                    soccerBall.AddForce((transform.right + transform.forward) * soccerBallSpeed, ForceMode.Impulse);
+                }
+            }
+            else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
+            {
+                minDistance = 1000f;
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;                  
+                    for (int i = 0; i < 11; i++)
+                    {
 
-            //    soccerBall.AddForce((-transform.right + transform.up) * soccerBallSpeed, ForceMode.Impulse);
+                        playerName = playerNamesBarcelona[i];
+                        player = GameObject.Find(playerName);
+                        if (this.transform.position.x < player.transform.position.x && this.transform.position.z > player.transform.position.z && Mathf.Sqrt(((player.transform.position.x - this.transform.position.x) * (player.transform.position.x - this.transform.position.x)) + ((this.transform.position.z - player.transform.position.z) * (this.transform.position.z - player.transform.position.z))) < minDistance)
+                        {
+                            //this.gameObject.name != playerName
+                            minDistance = Mathf.Sqrt(((player.transform.position.x - this.transform.position.x) * (player.transform.position.x - this.transform.position.x)) + ((this.transform.position.z - player.transform.position.z) * (this.transform.position.z - player.transform.position.z)));
+                            minName = playerName;
+                            //Debug.Log(minName);
+                        }
 
-            //}
+                    }
+                    playerName = "SoccerBall";
+                    player = GameObject.Find(playerName);
+                    player2 = GameObject.Find(minName);
+                    player.transform.position = new Vector3(player2.transform.position.x - 20, 4f, player2.transform.position.z - 20);
+                    playerRigidBody.constraints = RigidbodyConstraints.None;
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+                    this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
+                  //  Debug.Log(this.gameObject.name);
+                    player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
+                  //  Debug.Log(player2.name);
+                }
+                else
+                 {
+                    soccerBall.AddForce((transform.right - transform.forward) * soccerBallSpeed, ForceMode.Impulse);
+                }
+            }
             //else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x > collision.transform.position.x)
             //{
 
