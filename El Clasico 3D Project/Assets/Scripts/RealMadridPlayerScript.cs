@@ -16,7 +16,7 @@ public class RealMadridPlayerScript : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         playerSpeedRM = 30f;
-        soccerBallSpeed = 10f;
+        soccerBallSpeed = .01f;
         theRB = GetComponent<Rigidbody>();
         minDistance = 1000f;
         minXorZBetweenPlayers = 5f;
