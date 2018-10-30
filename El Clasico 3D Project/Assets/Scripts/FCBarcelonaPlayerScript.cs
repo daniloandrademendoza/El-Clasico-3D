@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FCBarcelonaPlayerScript : MonoBehaviour {
     private float playerSpeed;
@@ -19,6 +20,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     private string[] playerNamesRealMadrid = { "Isco", "Bale", "Benzema", "Modric", "Kroos", "Casemiro", "Marcelo", "Varane", "Ramos", "Carvajal", "Courtois" };
     private int playerRealMadridStringInt;
     private float minXorZBetweenPlayers;
+    public Text halfTimeText;
+    private int halfTimeInt;
     //Rigidbody playerRigidBody;
     // private bool done;
     // Use this for initialization
@@ -33,6 +36,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         minXorZBetweenPlayers = 5f;
         shootSoccerBall = 30f;
         playerRealMadridStringInt = 0;
+        halfTimeInt = 48;
        // playerRigidBody = this.GetComponent<Rigidbody>();
         //  done = false;
     }
@@ -474,7 +478,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
             }
 
-            if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z > 235)
+            if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z > 235 && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 playerRealMadridStringInt = 1;
                 for (int a = 0; a < 11; a++)
@@ -495,7 +499,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
 
             }
-            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z > 235)
+            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z > 235 && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 //Debug.Log("In");
                 playerRealMadridStringInt = 4;
@@ -517,7 +521,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     }
                 }
             }
-            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z > 235)
+            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z > 235 && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 playerRealMadridStringInt = 9;
                 for (int a = 0; a < 11; a++)
@@ -538,7 +542,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
             }
 
-            else if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z < -231)
+            else if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z < -231 && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 playerRealMadridStringInt = 2;
                 for (int a = 0; a < 11; a++)
@@ -559,7 +563,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
 
             }
-            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z < -231)
+            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z < -231 && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 //Debug.Log("In");
                 playerRealMadridStringInt = 3;
@@ -581,7 +585,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     }
                 }
             }
-            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z < -231)
+            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z < -231 && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 playerRealMadridStringInt = 6;
                 for (int a = 0; a < 11; a++)
@@ -602,7 +606,133 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
             }
 
+            else if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z > 235 && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            {
+                playerRealMadridStringInt = 9;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
 
+            }
+            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z > 235 && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            {
+                //Debug.Log("In");
+                playerRealMadridStringInt = 4;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        //  Debug.Log("In2");
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+            }
+            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z > 235 && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            {
+                playerRealMadridStringInt = 1;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+            }
+
+            else if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z < -231 && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            {
+                playerRealMadridStringInt = 6;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+
+            }
+            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z < -231 && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            {
+                //Debug.Log("In");
+                playerRealMadridStringInt = 3;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        //  Debug.Log("In2");
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+            }
+            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z < -231 && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            {
+                playerRealMadridStringInt = 2;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+            }
         }
         }
 	}

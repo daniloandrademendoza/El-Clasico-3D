@@ -335,7 +335,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 14204
+  m_LastSelectedObjectID: 5896
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -616,23 +616,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 08170000
-    m_LastClickedID: 5896
-    m_ExpandedIDs: e6fbffff00000000
+    m_SelectedIDs: 24160000
+    m_LastClickedID: 5668
+    m_ExpandedIDs: e6fbffff000000004c160000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Rakitic
+      m_OriginalName: Rakitic
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 5552
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -668,14 +668,14 @@ MonoBehaviour:
     height: 469
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 332.89628603843835
+  lastFramingTime: 777.0329839988821
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -106.041145, y: -36.853558, z: -90.76581}
+    m_Target: {x: -6.0044384, y: 21.501446, z: -40.40128}
     speed: 2
-    m_Value: {x: -106.041145, y: -36.853558, z: -90.76581}
+    m_Value: {x: -6.0044384, y: 21.501446, z: -40.40128}
   m_RenderMode: 31
   m_CameraMode:
     drawMode: 31
@@ -707,9 +707,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 488.7687
+    m_Target: 232.17863
     speed: 2
-    m_Value: 488.7687
+    m_Value: 232.17863
   m_Ortho:
     m_Target: 0
     speed: 2
