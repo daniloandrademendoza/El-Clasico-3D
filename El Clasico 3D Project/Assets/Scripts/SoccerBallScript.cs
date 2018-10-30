@@ -7,8 +7,8 @@ public class SoccerBallScript : MonoBehaviour {
     public AudioSource goalSoundSource;
     public Text fCBarcelonaScore;
     public Text realMadridScore;
-    private int fCBarcelonaGoals;
-    private int realMadridGoals;
+   // private int fCBarcelonaGoals;
+    //private int realMadridGoals;
     public Text halfTimeText2;
     private int halfTimeInt;
     private string playerName;
@@ -16,15 +16,18 @@ public class SoccerBallScript : MonoBehaviour {
     private string soccerBallString;
     private string[] playerNamesBarcelona = { "Messi", "Suarez", "Coutinho", "Rakitic", "Vidal", "Sergio", "Roberto", "Pique", "Umtiti", "Alba", "TerStegen" };
     private string[] playerNamesRealMadrid = { "Isco", "Bale", "Benzema", "Modric", "Kroos", "Casemiro", "Marcelo", "Varane", "Ramos", "Carvajal", "Courtois" };
+   // private string string0;
     // Use this for initialization
     void Start () {
         goalSoundSource.clip = goalClip;
-        fCBarcelonaGoals = 0;
-        realMadridGoals = 0;
+      //  fCBarcelonaGoals = 0;
+       // realMadridGoals = 0;
         halfTimeInt = 48;
         soccerBallString = " ";
-
-	}
+       // string0 = "0";
+      //  fCBarcelonaScore = string0;
+        //realMadridScore=string0;
+}
 	
 	// Update is called once per frame
 	//void Update () {
@@ -33,9 +36,10 @@ public class SoccerBallScript : MonoBehaviour {
             if(collision.gameObject.name == "GoalLeft" && System.Convert.ToInt32(halfTimeText2.text)<halfTimeInt)
             {
                 goalSoundSource.Play();
-                realMadridGoals = realMadridGoals + 1;
-                realMadridScore.text = realMadridGoals.ToString();
-                soccerBallString = "SoccerBall";
+                PersistentData.singleton.realMadridGoals = PersistentData.singleton.realMadridGoals + 1;
+                realMadridScore.text = PersistentData.singleton.realMadridGoals.ToString();
+            fCBarcelonaScore.text = PersistentData.singleton.fCBarcelonaGoals.ToString();
+            soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
                 soccerBallString = playerNamesBarcelona[0]; // place Messi
@@ -130,9 +134,10 @@ public class SoccerBallScript : MonoBehaviour {
             else if(collision.gameObject.name == "GoalRight" && System.Convert.ToInt32(halfTimeText2.text) < halfTimeInt)
             {
                 goalSoundSource.Play();
-                fCBarcelonaGoals = fCBarcelonaGoals + 1;
-                fCBarcelonaScore.text = fCBarcelonaGoals.ToString();
-                soccerBallString = "SoccerBall";
+            PersistentData.singleton.fCBarcelonaGoals = PersistentData.singleton.fCBarcelonaGoals + 1;
+            fCBarcelonaScore.text = PersistentData.singleton.fCBarcelonaGoals.ToString();
+            realMadridScore.text = PersistentData.singleton.realMadridGoals.ToString();
+            soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
                 soccerBallString = playerNamesBarcelona[0]; // place Messi
@@ -227,9 +232,10 @@ public class SoccerBallScript : MonoBehaviour {
             else if(collision.gameObject.name == "GoalLeft" && System.Convert.ToInt32(halfTimeText2.text) > halfTimeInt)
             {
                 goalSoundSource.Play();
-                fCBarcelonaGoals = fCBarcelonaGoals + 1;
-                fCBarcelonaScore.text = fCBarcelonaGoals.ToString();
-                soccerBallString = "SoccerBall";
+            PersistentData.singleton.fCBarcelonaGoals = PersistentData.singleton.fCBarcelonaGoals + 1;
+            fCBarcelonaScore.text = PersistentData.singleton.fCBarcelonaGoals.ToString();
+            realMadridScore.text = PersistentData.singleton.realMadridGoals.ToString();
+            soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
                 soccerBallString = playerNamesBarcelona[0]; // place Messi
@@ -324,9 +330,10 @@ public class SoccerBallScript : MonoBehaviour {
             else if(collision.gameObject.name == "GoalRight" && System.Convert.ToInt32(halfTimeText2.text) > halfTimeInt)
             {
                 goalSoundSource.Play();
-                realMadridGoals = realMadridGoals + 1;
-                realMadridScore.text = realMadridGoals.ToString();
-                soccerBallString = "SoccerBall";
+            PersistentData.singleton.realMadridGoals = PersistentData.singleton.realMadridGoals + 1;
+           realMadridScore.text = PersistentData.singleton.realMadridGoals.ToString();
+            fCBarcelonaScore.text = PersistentData.singleton.fCBarcelonaGoals.ToString();
+            soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
                 soccerBallString = playerNamesBarcelona[0]; // place Messi

@@ -163,17 +163,17 @@ public class TimerScipt : MonoBehaviour
                 timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
                 halfTimeTextGame.text = minutesGame.ToString();
             }
-            PersistentData.singleton.barcelonaGoalsGame = System.Convert.ToInt32(barcelonaScoreGame.text);
-            PersistentData.singleton.realMadridGoalsGame = System.Convert.ToInt32(realMadridScoreGame.text);
-            if (PersistentData.singleton.barcelonaGoalsGame > PersistentData.singleton.realMadridGoalsGame)
+            PersistentData.singleton.fCBarcelonaGoals = System.Convert.ToInt32(barcelonaScoreGame.text);
+            PersistentData.singleton.realMadridGoals = System.Convert.ToInt32(realMadridScoreGame.text);
+            if (PersistentData.singleton.fCBarcelonaGoals > PersistentData.singleton.realMadridGoals)
             {
                 SceneManager.LoadScene("BarcelonaWonScene");
             }
-            else if (PersistentData.singleton.realMadridGoalsGame > PersistentData.singleton.barcelonaGoalsGame)
+            else if (PersistentData.singleton.realMadridGoals > PersistentData.singleton.fCBarcelonaGoals)
             {
                 SceneManager.LoadScene("RealMadridWonScene");
             }
-            else if (PersistentData.singleton.barcelonaGoalsGame == PersistentData.singleton.realMadridGoalsGame)
+            else if (PersistentData.singleton.fCBarcelonaGoals == PersistentData.singleton.realMadridGoals)
             {
                 SceneManager.LoadScene("TieScene");
             }

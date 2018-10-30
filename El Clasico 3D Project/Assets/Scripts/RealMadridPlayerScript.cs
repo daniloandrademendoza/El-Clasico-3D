@@ -64,8 +64,9 @@ public class RealMadridPlayerScript : MonoBehaviour {
                 //    }
                 //}
                 //this.gameObject.name = playerNamesBarcelona[k];
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                    // Debug.Log(this.gameObject.name);
                     // Debug.Log("Up");
                     //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -97,8 +98,14 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                   //  Debug.Log(player2.name);
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce(transform.forward * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce(transform.forward * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
@@ -114,8 +121,9 @@ public class RealMadridPlayerScript : MonoBehaviour {
                 //    }
                 //}
                 //this.gameObject.name = playerNamesBarcelona[k];
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     //Debug.Log("Down");
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     //this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
@@ -142,8 +150,14 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     this.GetComponent<RealMadridPlayerScript>().enabled = false;
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce(-transform.forward * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce(-transform.forward * soccerBallSpeed, ForceMode.Impulse);
                 }
 
@@ -160,8 +174,9 @@ public class RealMadridPlayerScript : MonoBehaviour {
                 //    }
                 //}
                 //this.gameObject.name = playerNamesBarcelona[k];
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     // this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     for (int i = 0; i < 11; i++)
@@ -190,8 +205,15 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                     //   Debug.Log("enabled");
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
+                }
+            
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
                 }
 
@@ -200,8 +222,9 @@ public class RealMadridPlayerScript : MonoBehaviour {
             else if (this.transform.position.x > collision.transform.position.x && Mathf.Abs(this.transform.position.z - collision.transform.position.z) < minXorZBetweenPlayers)
             {
                 minDistance = 1000f;
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     // this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     for (int i = 0; i < 11; i++)
@@ -229,16 +252,23 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                     //Debug.Log(player2.name);
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
             else if (this.transform.position.z < collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
             {
                 minDistance = 1000f;
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     // this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     for (int i = 0; i < 11; i++)
@@ -267,16 +297,23 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                     // Debug.Log(player2.name);
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce((transform.right + transform.forward) * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce((transform.right + transform.forward) * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
             else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x < collision.transform.position.x)
             {
                 minDistance = 1000f;
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     for (int i = 0; i < 11; i++)
                     {
@@ -303,8 +340,14 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                     //  Debug.Log(player2.name);
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce((transform.right - transform.forward) * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce((transform.right - transform.forward) * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
@@ -312,8 +355,9 @@ public class RealMadridPlayerScript : MonoBehaviour {
             {
 
                 minDistance = 1000f;
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     for (int i = 0; i < 11; i++)
                     {
@@ -340,17 +384,23 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                     //  Debug.Log(player2.name);
                 }
-
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce((transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce((transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
             else if (this.transform.position.z > collision.transform.position.z && this.transform.position.x > collision.transform.position.x)
             {
                 minDistance = 1000f;
-                if (Input.GetKey(KeyCode.O))
+                if (Input.GetKey(KeyCode.U))
                 {
+                    soccerBall.drag = 2;
                     playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     for (int i = 0; i < 11; i++)
                     {
@@ -377,8 +427,14 @@ public class RealMadridPlayerScript : MonoBehaviour {
                     player2.GetComponent<RealMadridPlayerScript>().enabled = true;
                     //  Debug.Log(player2.name);
                 }
+                else if(Input.GetKey(KeyCode.O))
+                {
+                    soccerBall.drag = .0001f;
+                    soccerBall.AddForce((-transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
+                }
                 else
                 {
+                    soccerBall.drag = 2;
                     soccerBall.AddForce((-transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
                 }
             }
