@@ -12,10 +12,12 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     private string minName;
     private GameObject player;
     private GameObject player2;
+    private GameObject realMadridPlayer;
     private Rigidbody theRB;
     private float minDistance;
     private string[] playerNamesBarcelona = { "Messi", "Suarez", "Coutinho", "Rakitic", "Vidal", "Sergio", "Roberto", "Pique", "Umtiti", "Alba", "TerStegen" };
-   // private int i;
+    private string[] playerNamesRealMadrid = { "Isco", "Bale", "Benzema", "Modric", "Kroos", "Casemiro", "Marcelo", "Varane", "Ramos", "Carvajal", "Courtois" };
+    private int playerRealMadridStringInt;
     private float minXorZBetweenPlayers;
     //Rigidbody playerRigidBody;
     // private bool done;
@@ -30,6 +32,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
         //i = 0;
         minXorZBetweenPlayers = 5f;
         shootSoccerBall = 30f;
+        playerRealMadridStringInt = 0;
        // playerRigidBody = this.GetComponent<Rigidbody>();
         //  done = false;
     }
@@ -66,7 +69,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     {
         if (collision.gameObject.name == "SoccerBall")
         {
-           // int k = 100;
+            // int k = 100;
             //for (int j = 0; j < 11; j++)
             //{
             //    if (this.gameObject.name == playerNamesBarcelona[j])
@@ -79,7 +82,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
             Rigidbody playerRigidBody = this.GetComponent<Rigidbody>();
             if (this.transform.position.z < collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < minXorZBetweenPlayers)//Up
             {
-               
+
                 minDistance = 1000f;
                 //for (int j = 0; j < 11; j++)
                 //{
@@ -92,9 +95,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 if (Input.GetKey(KeyCode.Q))
                 {
                     soccerBall.drag = 2;
-                   // Debug.Log("Up");
-                   //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-                   playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                    // Debug.Log("Up");
+                    //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+                    playerRigidBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                     // this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     for (int i = 0; i < 11; i++)
                     {
@@ -119,11 +122,11 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     this.GetComponent<FCBarcelonaPlayerScript>().enabled = false;
                     player2.GetComponent<FCBarcelonaPlayerScript>().enabled = true;
                 }
-                else if(Input.GetKey(KeyCode.E))
+                else if (Input.GetKey(KeyCode.E))
                 {
                     soccerBall.drag = 0.0001f;
                     soccerBall.AddForce(transform.forward * soccerBallSpeed, ForceMode.Impulse);
-                   
+
                 }
                 else
                 {
@@ -134,7 +137,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
 
             else if (this.transform.position.z > collision.transform.position.z && Mathf.Abs(this.transform.position.x - collision.transform.position.x) < minXorZBetweenPlayers) // Left
             {
-                
+
                 minDistance = 1000f;
                 //for (int j = 0; j < 11; j++)
                 //{
@@ -177,7 +180,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 {
                     soccerBall.drag = 0.0001f;
                     soccerBall.AddForce(-transform.forward * soccerBallSpeed, ForceMode.Impulse);
-                   
+
                 }
                 else
                 {
@@ -234,7 +237,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                     soccerBall.drag = 0.0001f;
                     Debug.Log(soccerBall.drag);
                     soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
-                   
+
                     Debug.Log(soccerBall.drag);
                 }
                 else
@@ -282,7 +285,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 {
                     soccerBall.drag = 0.0001f;
                     soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
-                    
+
                 }
                 else
                 {
@@ -328,7 +331,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 {
                     soccerBall.drag = 0.0001f;
                     soccerBall.AddForce((transform.right + transform.forward) * soccerBallSpeed, ForceMode.Impulse);
-                   
+
                 }
                 else
                 {
@@ -372,7 +375,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 {
                     soccerBall.drag = 0.0001f;
                     soccerBall.AddForce((transform.right - transform.forward) * soccerBallSpeed, ForceMode.Impulse);
-                    
+
                 }
 
                 else
@@ -418,7 +421,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 {
                     soccerBall.drag = 0.0001f;
                     soccerBall.AddForce((transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
-                    
+
                 }
                 else
                 {
@@ -462,12 +465,76 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 {
                     soccerBall.drag = 0.00001f;
                     soccerBall.AddForce((-transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
-                    
+
                 }
                 else
                 {
                     soccerBall.drag = 2f;
                     soccerBall.AddForce((-transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
+                }
+            }
+
+            if (collision.gameObject.transform.position.x >= -437 && collision.gameObject.transform.position.x < -144.26 && collision.gameObject.transform.position.z > 235)
+            {
+                playerRealMadridStringInt = 1;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+
+            }
+            else if (collision.gameObject.transform.position.x >= -144.26 && collision.gameObject.transform.position.x < 148.46 && collision.gameObject.transform.position.z > 235)
+            {
+                Debug.Log("In");
+                playerRealMadridStringInt = 4;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        Debug.Log("In2");
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                    }
+                }
+            }
+            else if (collision.gameObject.transform.position.x >= 148.46 && collision.gameObject.transform.position.x < 441.2 && collision.gameObject.transform.position.z > 235)
+            {
+                playerRealMadridStringInt = 9;
+                for (int a = 0; a < 11; a++)
+                {
+                    if (playerRealMadridStringInt != a)
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = false;
+                    }
+                    else
+                    {
+                        realMadridPlayer = GameObject.Find(playerNamesRealMadrid[a]);
+                        realMadridPlayer.GetComponent<RealMadridPlayerScript>().enabled = true;
+                        playerName = "SoccerBall";
+                        player = GameObject.Find(playerName);
+                        player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                    }
                 }
             }
         }
