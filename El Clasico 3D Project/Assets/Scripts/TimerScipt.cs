@@ -45,7 +45,7 @@ public class TimerScipt : MonoBehaviour
     {
         if (currentScene == SceneManager.GetSceneByName("GameScene"))
         {
-            PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * 50; //50
+            PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime *(48/5); //50
             minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
             secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
             timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
@@ -55,7 +55,7 @@ public class TimerScipt : MonoBehaviour
         {
             if (currentScene == SceneManager.GetSceneByName("GameScene"))
             {
-                PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * 50;
+                PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * (48 / 5);
                 minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
                 secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
                 timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
@@ -157,7 +157,7 @@ public class TimerScipt : MonoBehaviour
         {
             if (currentScene == SceneManager.GetSceneByName("GameScene"))
             {
-                PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * 50;
+                PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * (48 / 5);
                 minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
                 secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
                 timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
