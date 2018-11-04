@@ -24,10 +24,12 @@ public class SoccerBallScript : MonoBehaviour {
        // realMadridGoals = 0;
         halfTimeInt = 48;
         soccerBallString = " ";
-       // string0 = "0";
-      //  fCBarcelonaScore = string0;
+        // string0 = "0";
+        //  fCBarcelonaScore = string0;
+        realMadridScore.text = PersistentData.singleton.realMadridGoals.ToString();
+        fCBarcelonaScore.text = PersistentData.singleton.fCBarcelonaGoals.ToString();
         //realMadridScore=string0;
-}
+    }
 	
 	// Update is called once per frame
 	//void Update () {
