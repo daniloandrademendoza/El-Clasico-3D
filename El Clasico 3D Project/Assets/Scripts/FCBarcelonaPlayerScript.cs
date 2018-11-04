@@ -26,8 +26,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
     // private bool done;
     // Use this for initialization
     void Start() {
-        playerSpeed = 30f;
-        soccerBallSpeed = .01f;
+        playerSpeed = 100f; //30   300 fast
+        soccerBallSpeed = .01f; //.01
       //  soccerBallSpeedStop = 0f;
         theRB = GetComponent<Rigidbody>();
        // soccerBallMove = 10f;
@@ -128,7 +128,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;//0.0001
                     soccerBall.AddForce(transform.forward * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -182,7 +182,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;
                     soccerBall.AddForce(-transform.forward * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -238,7 +238,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;
                     Debug.Log(soccerBall.drag);
                     soccerBall.AddForce(transform.right * soccerBallSpeed, ForceMode.Impulse);
 
@@ -287,7 +287,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;
                     soccerBall.AddForce(-transform.right * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -333,7 +333,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;
                     soccerBall.AddForce((transform.right + transform.forward) * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -377,7 +377,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;
                     soccerBall.AddForce((transform.right - transform.forward) * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -423,7 +423,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.0001f;
+                    soccerBall.drag = 0.00001f;
                     soccerBall.AddForce((transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -467,7 +467,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.E))
                 {
-                    soccerBall.drag = 0.00001f;
+                    soccerBall.drag = 0.000001f;
                     soccerBall.AddForce((-transform.forward - transform.right) * soccerBallSpeed, ForceMode.Impulse);
 
                 }
@@ -495,6 +495,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
 
@@ -518,6 +521,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -538,6 +544,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -559,6 +568,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
 
@@ -582,6 +594,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -602,6 +617,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x - 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -623,6 +641,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
 
@@ -646,6 +667,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -666,6 +690,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -687,6 +714,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
 
@@ -710,6 +740,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }
@@ -730,6 +763,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                         playerName = "SoccerBall";
                         player = GameObject.Find(playerName);
                         player.transform.position = new Vector3(realMadridPlayer.transform.position.x + 20, 4f, realMadridPlayer.transform.position.z);
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                     }
                 }
             }

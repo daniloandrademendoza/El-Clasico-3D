@@ -44,7 +44,8 @@ public class SoccerBallScript : MonoBehaviour {
             soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
-                soccerBallString = playerNamesBarcelona[0]; // place Messi
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            soccerBallString = playerNamesBarcelona[0]; // place Messi
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(-7.7f, 0f, -41.1f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, 90f, 0f);
@@ -132,6 +133,9 @@ public class SoccerBallScript : MonoBehaviour {
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(439.5f, 0f, 3.4f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, -90f, 0f);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+
         }
             else if(collision.gameObject.name == "GoalRight" && System.Convert.ToInt32(halfTimeText2.text) < halfTimeInt)
             {
@@ -142,7 +146,8 @@ public class SoccerBallScript : MonoBehaviour {
             soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
-                soccerBallString = playerNamesBarcelona[0]; // place Messi
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            soccerBallString = playerNamesBarcelona[0]; // place Messi
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(-116f, 0f, 3f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, 90f, 0f);
@@ -230,6 +235,8 @@ public class SoccerBallScript : MonoBehaviour {
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(439.5f, 0f, 3.4f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, -90f, 0f);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         }
             else if(collision.gameObject.name == "GoalLeft" && System.Convert.ToInt32(halfTimeText2.text) > halfTimeInt)
             {
@@ -240,7 +247,8 @@ public class SoccerBallScript : MonoBehaviour {
             soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
-                soccerBallString = playerNamesBarcelona[0]; // place Messi
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            soccerBallString = playerNamesBarcelona[0]; // place Messi
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(132.5f, 0f, -5.9f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, -90f, 0f);
@@ -328,6 +336,8 @@ public class SoccerBallScript : MonoBehaviour {
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(-428.6f, 0f, 5.5f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, 90f, 0f);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         }   
             else if(collision.gameObject.name == "GoalRight" && System.Convert.ToInt32(halfTimeText2.text) > halfTimeInt)
             {
@@ -338,7 +348,8 @@ public class SoccerBallScript : MonoBehaviour {
             soccerBallString = "SoccerBall";
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(0.11f, 4f, 1.03f);
-                soccerBallString = playerNamesBarcelona[0]; // place Messi
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            soccerBallString = playerNamesBarcelona[0]; // place Messi
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(11f, 0f, -21f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, -90f, 0f);
@@ -426,6 +437,8 @@ public class SoccerBallScript : MonoBehaviour {
                 soccerPlayer = GameObject.Find(soccerBallString);
                 soccerPlayer.transform.position = new Vector3(-428.6f, 0f, 5.5f);
                 soccerPlayer.transform.eulerAngles = new Vector3(0f, 90f, 0f);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         }
         }
 	//}
