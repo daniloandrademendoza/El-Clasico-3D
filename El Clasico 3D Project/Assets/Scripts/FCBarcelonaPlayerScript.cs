@@ -52,8 +52,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
             if (Input.GetKey(KeyCode.Z))
             {
                 theRB.velocity = new Vector3(theRB.velocity.x, 0f, playerSpeedFast);
-                Debug.Log("W");
-                Debug.Log(playerSpeedFast);
+               // Debug.Log("W");
+               // Debug.Log(playerSpeedFast);
             }
             else
             {
@@ -66,8 +66,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
             if (Input.GetKey(KeyCode.Z))
             {
                 theRB.velocity = new Vector3(-playerSpeedFast, 0f, theRB.velocity.z);
-                Debug.Log("A");
-                Debug.Log(playerSpeedFast);
+              //  Debug.Log("A");
+              //  Debug.Log(playerSpeedFast);
             }
             else
             {
@@ -80,8 +80,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
             if(Input.GetKey(KeyCode.Z))
             {
                 theRB.velocity = new Vector3(theRB.velocity.x, 0f, -playerSpeedFast);
-                Debug.Log("S");
-                Debug.Log(playerSpeedFast);
+              //  Debug.Log("S");
+              //  Debug.Log(playerSpeedFast);
             }
             else
             {
@@ -94,8 +94,8 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
             if(Input.GetKey(KeyCode.Z))
             {
                 theRB.velocity = new Vector3(playerSpeedFast, 0f, theRB.velocity.z);
-                Debug.Log("D");
-                Debug.Log(playerSpeedFast);
+               // Debug.Log("D");
+               //Debug.Log(playerSpeedFast);
                 // Debug.Log("D");
             }
             else

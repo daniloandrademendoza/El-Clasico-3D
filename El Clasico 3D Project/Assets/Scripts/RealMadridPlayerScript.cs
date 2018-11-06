@@ -20,9 +20,11 @@ public class RealMadridPlayerScript : MonoBehaviour {
     private int playerRealMadridStringInt;
     public Text halfTimeText;
     private int halfTimeInt;
+    private float playerSpeedFast;
     // Use this for initialization
     void Start () {
         playerSpeedRM = 100f;
+        playerSpeedFast = 150f;
         soccerBallSpeed = .01f;
         theRB = GetComponent<Rigidbody>();
         minDistance = 1000f;
@@ -35,19 +37,55 @@ public class RealMadridPlayerScript : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.I))
         {
-            theRB.velocity = new Vector3(theRB.velocity.x, 0f, playerSpeedRM);
+            if(Input.GetKey(KeyCode.N))
+            {
+                theRB.velocity = new Vector3(theRB.velocity.x, 0f, playerSpeedFast);
+              //  Debug.Log("I");
+              //  Debug.Log(playerSpeedFast);
+            }
+            else
+            {
+                theRB.velocity = new Vector3(theRB.velocity.x, 0f, playerSpeedRM);
+            }
         }
         else if (Input.GetKey(KeyCode.J))
         {
-            theRB.velocity = new Vector3(-playerSpeedRM, 0f, theRB.velocity.z);
+            if(Input.GetKey(KeyCode.N))
+            {
+                theRB.velocity = new Vector3(-playerSpeedFast, 0f, theRB.velocity.z);
+              //  Debug.Log("J");
+               // Debug.Log(playerSpeedFast);
+            }
+            else
+            {
+                theRB.velocity = new Vector3(-playerSpeedRM, 0f, theRB.velocity.z);
+            }
         }
         else if (Input.GetKey(KeyCode.K))
         {
-            theRB.velocity = new Vector3(theRB.velocity.x, 0f, -playerSpeedRM);
+            if(Input.GetKey(KeyCode.N))
+            {
+                theRB.velocity = new Vector3(theRB.velocity.x, 0f, -playerSpeedFast);
+              //  Debug.Log("K");
+              //  Debug.Log(playerSpeedFast);
+            }
+            else
+            {
+                theRB.velocity = new Vector3(theRB.velocity.x, 0f, -playerSpeedRM);
+            }
         }
         else if (Input.GetKey(KeyCode.L))
         {
-            theRB.velocity = new Vector3(playerSpeedRM, 0f, theRB.velocity.z);
+            if(Input.GetKey(KeyCode.N))
+            {
+                theRB.velocity = new Vector3(playerSpeedFast, 0f, theRB.velocity.z);
+               // Debug.Log("L");
+              //  Debug.Log(playerSpeedFast);
+            }
+            else
+            {
+                theRB.velocity = new Vector3(playerSpeedRM, 0f, theRB.velocity.z);
+            }
         }
         else
         {
