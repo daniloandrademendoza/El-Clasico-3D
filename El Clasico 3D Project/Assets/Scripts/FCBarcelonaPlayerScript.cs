@@ -771,7 +771,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
             }
             //corners
-            if ((((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= -45 && collision.gameObject.transform.position.z >= -232.7)) || ((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= 235.83 && collision.gameObject.transform.position.z >= 48.71))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
+            if ((((collision.gameObject.transform.position.x <= -445f) && (collision.gameObject.transform.position.z <= -45f && collision.gameObject.transform.position.z >= -232.7f)) || ((collision.gameObject.transform.position.x <= -445f) && (collision.gameObject.transform.position.z <= 235.83f && collision.gameObject.transform.position.z >= 48.71f))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
                 collision.gameObject.transform.position = new Vector3(-371.64f, 4f, -12.9f);
                 barcelonaPlayer = GameObject.Find(playerNamesBarcelona[0]);
@@ -819,7 +819,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 realMadridPlayer = GameObject.Find(playerNamesRealMadrid[10]);
                 realMadridPlayer.transform.position = new Vector3(439.5f, 0f, 3.4f);
             }
-            else if ((((collision.gameObject.transform.position.x >= 445) && (collision.gameObject.transform.position.z <= -43.8 && collision.gameObject.transform.position.z >= -230.5)) || ((collision.gameObject.transform.position.x >= 445) && (collision.gameObject.transform.position.z <= 235.9 && collision.gameObject.transform.position.z >= 51.1))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt) 
+            else if ((((collision.gameObject.transform.position.x >= 445f) && (collision.gameObject.transform.position.z <= -43.8f && collision.gameObject.transform.position.z >= -230.5f)) || ((collision.gameObject.transform.position.x >= 445f) && (collision.gameObject.transform.position.z <= 235.9f && collision.gameObject.transform.position.z >= 51.1f))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt) 
             {
                 collision.gameObject.transform.position = new Vector3(397.1f, 4f, 71.3f); //
                 collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
@@ -870,7 +870,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 realMadridPlayer = GameObject.Find(playerNamesRealMadrid[10]);
                 realMadridPlayer.transform.position = new Vector3(407.5f, 0f, 72.2f);//
             }
-            else if ((((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= -45 && collision.gameObject.transform.position.z >= -232.7)) || ((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= 235.83 && collision.gameObject.transform.position.z >= 48.71))) && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
+            else if ((((collision.gameObject.transform.position.x <= -445f) && (collision.gameObject.transform.position.z <= -45f && collision.gameObject.transform.position.z >= -232.7f)) || ((collision.gameObject.transform.position.x <= -445f) && (collision.gameObject.transform.position.z <= 235.83f && collision.gameObject.transform.position.z >= 48.71f))) && System.Convert.ToInt32(halfTimeText.text) > halfTimeInt)
             {
                 collision.gameObject.transform.position = new Vector3(-394.3f, 4f, -68.9f); //
                 collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
