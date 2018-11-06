@@ -771,9 +771,9 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 }
             }
             //corners
-            if((((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= -45 && collision.gameObject.transform.position.z >= -232.7))|| ((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= 235.83 && collision.gameObject.transform.position.z >= 48.71))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
+            if ((((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= -45 && collision.gameObject.transform.position.z >= -232.7)) || ((collision.gameObject.transform.position.x <= -445) && (collision.gameObject.transform.position.z <= 235.83 && collision.gameObject.transform.position.z >= 48.71))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt)
             {
-                collision.gameObject.transform.position = new Vector3(-371.64f,4f,-12.9f);
+                collision.gameObject.transform.position = new Vector3(-371.64f, 4f, -12.9f);
                 barcelonaPlayer = GameObject.Find(playerNamesBarcelona[0]);
                 barcelonaPlayer.transform.position = new Vector3(-118f, 0f, 19f);
                 barcelonaPlayer = GameObject.Find(playerNamesBarcelona[1]);
@@ -797,7 +797,7 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 barcelonaPlayer = GameObject.Find(playerNamesBarcelona[10]);
                 barcelonaPlayer.transform.position = new Vector3(-430.8f, 0f, 4.4f);
                 realMadridPlayer = GameObject.Find(playerNamesRealMadrid[0]);
-                realMadridPlayer.transform.position = new Vector3(-361f,0f,-13.7f);
+                realMadridPlayer.transform.position = new Vector3(-361f, 0f, -13.7f);
                 realMadridPlayer = GameObject.Find(playerNamesRealMadrid[1]);
                 realMadridPlayer.transform.position = new Vector3(-373.2f, 0f, 49.5f);
                 realMadridPlayer = GameObject.Find(playerNamesRealMadrid[2]);
@@ -818,6 +818,57 @@ public class FCBarcelonaPlayerScript : MonoBehaviour {
                 realMadridPlayer.transform.position = new Vector3(-246.8f, 0f, 95.1f);
                 realMadridPlayer = GameObject.Find(playerNamesRealMadrid[10]);
                 realMadridPlayer.transform.position = new Vector3(439.5f, 0f, 3.4f);
+            }
+            else if ((((collision.gameObject.transform.position.x >= 445) && (collision.gameObject.transform.position.z <= -43.8 && collision.gameObject.transform.position.z >= -230.5)) || ((collision.gameObject.transform.position.x >= 445) && (collision.gameObject.transform.position.z <= 235.9 && collision.gameObject.transform.position.z >= 51.1))) && System.Convert.ToInt32(halfTimeText.text) < halfTimeInt) 
+            {
+                collision.gameObject.transform.position = new Vector3(397.1f, 4f, 71.3f); //
+                collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[0]);
+                barcelonaPlayer.transform.position = new Vector3(208f, 0f, 1f); //
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[1]);
+                barcelonaPlayer.transform.position = new Vector3(242.4f, 0f, 153.3f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[2]);
+                barcelonaPlayer.transform.position = new Vector3(246f, 0f, -143f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[3]);
+                barcelonaPlayer.transform.position = new Vector3(-31f, 0f, -133f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[4]);
+                barcelonaPlayer.transform.position = new Vector3(-28f, 0f, 148f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[5]);
+                barcelonaPlayer.transform.position = new Vector3(-136f, 0f, 3f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[6]);
+                barcelonaPlayer.transform.position = new Vector3(-317f, 0f, -207f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[7]);
+                barcelonaPlayer.transform.position = new Vector3(-323f, 0f, -67f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[8]);
+                barcelonaPlayer.transform.position = new Vector3(-335f, 0f, 103f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[9]);
+                barcelonaPlayer.transform.position = new Vector3(-355f, 0f, 203f);//
+                barcelonaPlayer = GameObject.Find(playerNamesBarcelona[10]);
+                barcelonaPlayer.transform.position = new Vector3(-432.6f, 0f, 3.6f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[0]);
+                realMadridPlayer.transform.position = new Vector3(-287f, 0f, -10f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[1]);
+                realMadridPlayer.transform.position = new Vector3(-257f, 0f, 155f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[2]);
+                realMadridPlayer.transform.position = new Vector3(-280f, 0f, -156f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[3]);
+                realMadridPlayer.transform.position = new Vector3(-13f, 0f, -139f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[4]);
+                realMadridPlayer.transform.position = new Vector3(-11f, 0f, 145f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[5]);
+                realMadridPlayer.transform.position = new Vector3(-93f, 0f, 4f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[6]);
+                realMadridPlayer.transform.position = new Vector3(327f, 0f, -208f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[7]);
+                realMadridPlayer.transform.position = new Vector3(260.3f, 0f, -80.5f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[8]);
+                realMadridPlayer.transform.position = new Vector3(256f, 0f, 91f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[9]);
+                realMadridPlayer.transform.position = new Vector3(326f, 0f, 210f);//
+                realMadridPlayer = GameObject.Find(playerNamesRealMadrid[10]);
+                realMadridPlayer.transform.position = new Vector3(407.5f, 0f, 72.2f);//
             }
         }
             

@@ -22,7 +22,7 @@ public class RealMadridPlayerScript : MonoBehaviour {
     private int halfTimeInt;
     // Use this for initialization
     void Start () {
-        playerSpeedRM = 30f;
+        playerSpeedRM = 100f;
         soccerBallSpeed = .01f;
         theRB = GetComponent<Rigidbody>();
         minDistance = 1000f;
