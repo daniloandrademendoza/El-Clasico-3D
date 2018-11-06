@@ -26,5 +26,9 @@ public class LoadOnClick : MonoBehaviour {
             SceneManager.LoadScene("PauseScene");
             
         }
+        else if(level==5)
+        {
+            SceneManager.LoadScene("FinalScoreScene");
+        }
     }
 }

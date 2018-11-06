@@ -20,8 +20,7 @@ public class TimerScipt : MonoBehaviour
     private GameObject soccerPlayer;
     public Text barcelonaScoreGame;
     public Text realMadridScoreGame;
-    
-   
+    public int scoresNumber;
     public Text halfTimeTextGame;
     public bool gamePaused;
     private Scene currentScene;
@@ -34,7 +33,7 @@ public class TimerScipt : MonoBehaviour
         fullTimeGamePlus = 5600f;
         minutesGame = 0;
         secondsGame = 0;
-      
+        scoresNumber = 0;
         soccerBallString = " ";
         gamePaused = false;
         currentScene = SceneManager.GetActiveScene();
@@ -45,7 +44,7 @@ public class TimerScipt : MonoBehaviour
     {
         if (currentScene == SceneManager.GetSceneByName("GameScene"))
         {
-            PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime * (48 / 5); //400;//(48/5); //50
+            PersistentData.singleton.timeElapsedGame = PersistentData.singleton.timeElapsedGame + Time.smoothDeltaTime *(48 / 5); //400;//(48/5); //50
             minutesGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame / 60f);
             secondsGame = Mathf.FloorToInt(PersistentData.singleton.timeElapsedGame - minutesGame * 60);
             timeGame.text = string.Format("{0:0}:{1:00}", minutesGame, secondsGame);
@@ -165,8 +164,13 @@ public class TimerScipt : MonoBehaviour
             }
             PersistentData.singleton.fCBarcelonaGoals = System.Convert.ToInt32(barcelonaScoreGame.text);
             PersistentData.singleton.realMadridGoals = System.Convert.ToInt32(realMadridScoreGame.text);
+            
+                PersistentData.singleton.barcelonaScores[scoresNumber] = PersistentData.singleton.fCBarcelonaGoals;
+                PersistentData.singleton.realMadridScores[scoresNumber] = PersistentData.singleton.realMadridGoals;
+            
             if (PersistentData.singleton.fCBarcelonaGoals > PersistentData.singleton.realMadridGoals)
             {
+               // SceneManager.LoadScene("FinalScoreScene");
                 SceneManager.LoadScene("BarcelonaWonScene");
             }
             else if (PersistentData.singleton.realMadridGoals > PersistentData.singleton.fCBarcelonaGoals)

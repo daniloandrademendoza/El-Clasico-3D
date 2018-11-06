@@ -11,6 +11,8 @@ public class PersistentData : MonoBehaviour
     public float timeElapsedGame;
     public int fCBarcelonaGoals;
     public int realMadridGoals;
+    public int[] barcelonaScores = new int[1];
+    public int[] realMadridScores = new int[1];
    // public Text fCBarcelonaScore;
    // public Text realMadridScore;
     void Awake()
